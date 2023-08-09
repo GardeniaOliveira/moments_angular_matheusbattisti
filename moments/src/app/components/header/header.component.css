@@ -1,0 +1,36 @@
+header {
+  background-color: rgb(230, 218, 241);
+  height: 12vh;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand img{
+  height: 2.5rem;
+  padding-right: 0.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+li{
+  list-style: none;
+  padding: 0 1rem;
+}
+
+#add a{
+  color: #dec129;
+}
+#add a:hover{
+  background-color: #efefef;
+}
