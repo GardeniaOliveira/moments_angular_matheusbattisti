@@ -1,3 +1,4 @@
-.container{
-min-height: 76vh;
+.container {
+  min-height: 76vh;
+  padding-top: 1rem;
 }
