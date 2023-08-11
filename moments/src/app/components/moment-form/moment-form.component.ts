@@ -1,6 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Moment } from 'src/app/Moment';
 
 @Component({
   selector: 'app-moment-form',
@@ -8,6 +9,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./moment-form.component.css']
 })
 export class MomentFormComponent implements OnInit {
+  @Output() onSubmit = new EventEmitter<Moment>();
 @Input() btnText !: string;
 
 //here the form is declared
@@ -32,11 +34,23 @@ momentForm!: FormGroup;
   get description(){
     return this.momentForm.get('description')!;
   }
+
+  onFileSelected (event: any) {
+
+    //get the first image in the array of images
+    const file = event.target.files[0];
+
+    //to insert the image into the form
+    this.momentForm.patchValue({image: file})
+  }
   submit(){
     if(this.momentForm.invalid){
-      return; 
+      return;
     }
-    console.log("send form");
+    console.log(this.momentForm.value);
+
+    //send data to the father component
+    this.onSubmit.emit(this.momentForm.value);
   }
 
 

@@ -27,7 +27,10 @@ ngForm indicates that it is a form to the Angular -->
 
     <div class="form-group">
       <label for="image">Select the best photos to represent this moment</label>
-      <input type="file">
+      <input
+      type="file"
+      (change)="onFileSelected($event)"
+      >
     </div>
 
     <input type="submit" value="{{btnText}}" />
